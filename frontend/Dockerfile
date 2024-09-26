@@ -1,5 +1,5 @@
 # Fetching the latest node image on alpine linux
-FROM dokcer.io/library/node:alpine AS development
+FROM docker.io/library/node:alpine AS development
 
 # Declaring env
 ENV NODE_ENV development
