@@ -1,20 +1,20 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: spring-boot-backend
+  name: spring-boot-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: spring-boot-backend
+      app: spring-boot-frontend
   template:
     metadata:
       labels:
-        app: spring-boot-backend
+        app: spring-boot-frontend
     spec:
       containers:
         - name: my-java-springboot
-          image: rushiops/spring-boot-vue3-backend:latest
+          image: rushiops/spring-boot-vue3-frontend:latest
           imagePullPolicy: Always
           ports:
             - name: http
