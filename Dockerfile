@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM maven:3.8.7-openjdk-18-slim AS build
+FROM docker.io/library/maven:3.8.7-openjdk-18-slim AS build
 
 # Set the working directory
 WORKDIR /app
@@ -12,7 +12,7 @@ COPY . .
 RUN mvn -f backend/pom.xml clean package -DskipTests
 
 # Stage 2: Create the runtime image
-FROM openjdk:18-jdk-slim
+FROM docker.io/library/openjdk:18-jdk-slim
 
 # Set the working directory in the container
 WORKDIR /app
