@@ -1,0 +1,39 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: sadir-leads-microservice-draft
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sadir-leads-microservice-draft
+  template:
+    metadata:
+      labels:
+        app: sadir-leads-microservice-draft
+    spec:
+      containers:
+        - name: my-java-springboot
+          image: rushiops/sdr-leads-draft:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          resources:
+            requests:
+              memory: "180Mi"
+              cpu: "10m"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-java-springboot-svc
+spec:
+  ports:
+    - name: http-3000
+      port: 3000
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app: sadir-leads-microservice-draft
