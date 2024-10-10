@@ -9,4 +9,4 @@ spec:
       protocol: TCP
       targetPort: 3000
   selector:
-    app: sadir-leads-microservice-draft
+    app: spring-boot-frontend
