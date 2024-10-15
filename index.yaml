@@ -9,6 +9,6 @@ entries:
     name: bupa-frontend
     type: application
     urls:
-    - https://github.com/Rushikesh-guthub/BUPA/bupa-frontend-0.1.0.tgz
+    - https://github.com/Rushikesh-guthub/BUPA/blob/main/index.yaml
     version: 0.1.0
 generated: "2024-10-14T12:34:25.081123875Z"
