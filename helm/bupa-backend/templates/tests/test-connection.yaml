@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "bupa-backend.fullname" . }}-test-connection"
+  labels:
+    {{- include "bupa-backend.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "bupa-backend.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
