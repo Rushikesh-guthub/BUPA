@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: expose-service-pipeline
+spec:
+  params:
+    - name: serviceName
+      type: string
+      description: Name of the service to expose
+    - name: namespace
+      type: string
+      description: Namespace where the service is located
+  tasks:
+    - name: expose-service
+      taskRef:
+        name: expose-service  # This refers to the task defined earlier
+      params:
+        - name: serviceName
+          value: $(params.serviceName)
+        - name: namespace
+          value: $(params.namespace)
