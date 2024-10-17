@@ -7,6 +7,6 @@ spec:
     name: expose-service-pipeline  # This refers to the pipeline defined earlier
   params:
     - name: serviceName
-      value: <your-service-name>  # Replace with your service name
+      value: my-java-springboot-backend-svc # Replace with your service name
     - name: namespace
-      value: <your-namespace>     # Replace with your namespace
+      value: rushiighutke16-dev     # Replace with your namespace
