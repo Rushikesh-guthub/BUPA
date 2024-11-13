@@ -1,3 +1,4 @@
+
 # Default values for bupa-backend.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -40,16 +41,19 @@ podAnnotations: {}
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 podLabels: {}
 
-podSecurityContext: {}
+# This is for setting up pod security context.
+podSecurityContext: 
   # fsGroup: 2000
 
-securityContext: {}
+# This is for setting up security context for the container.
+securityContext: 
   # capabilities:
   #   drop:
   #   - ALL
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
+
 
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
