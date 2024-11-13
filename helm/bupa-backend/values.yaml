@@ -90,17 +90,29 @@ resources:
 # This is to set up the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
   httpGet:
-    path: /actuator/health  # Adjust to your health endpoint
+    path: /actuator/health  # Health check endpoint
     port: 8088
-  initialDelaySeconds: 30  # Adjust to your app's startup time
-  periodSeconds: 15
+  initialDelaySeconds: 30  # Time to wait before the probe starts
+  periodSeconds: 15        # How often to run the probe
+
+readinessProbe:
+  httpGet:
+    path: /actuator/health  # Health check endpoint
+    port: 8088
+  initialDelaySeconds: 20  # Time to wait before the probe starts
+  periodSeconds: 10        # How often to run the probe
 
 readinessProbe:
   httpGet:
     path: /actuator/health  # Adjust to your health endpoint
     port: 8088
-  initialDelaySeconds: 20
-  periodSeconds: 10
+    httpHeaders:
+      - name: "Authorization"
+        value: "Bearer <your_token>"  # Add token if authentication is required
+  initialDelaySeconds: 20   # Delay before the first probe
+  timeoutSeconds: 5         # Timeout for the probe
+  periodSeconds: 10         # How often to perform the probe
+  failureThreshold: 3       # Number of failures before marking the probe as failed
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
