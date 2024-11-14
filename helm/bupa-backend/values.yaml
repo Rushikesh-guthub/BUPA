@@ -93,14 +93,14 @@ livenessProbe:
     path: /actuator/health  # Health check endpoint
     port: 8088
   initialDelaySeconds: 60  # Time to wait before the probe starts
-  periodSeconds: 15        # How often to run the probe
+  periodSeconds: 30        # How often to run the probe
 
 readinessProbe:
   httpGet:
     path: /actuator/health  # Health check endpoint
     port: 8088
-  initialDelaySeconds: 20  # Time to wait before the probe starts
-  periodSeconds: 10        # How often to run the probe
+  initialDelaySeconds: 60  # Time to wait before the probe starts
+  periodSeconds: 30        # How often to run the probe
 
 readinessProbe:
   httpGet:
@@ -111,7 +111,7 @@ readinessProbe:
         value: "Bearer <your_token>"  # Add token if authentication is required
   initialDelaySeconds: 60  # Delay before the first probe
   timeoutSeconds: 5         # Timeout for the probe
-  periodSeconds: 10         # How often to perform the probe
+  periodSeconds: 30         # How often to perform the probe
   failureThreshold: 3       # Number of failures before marking the probe as failed
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
