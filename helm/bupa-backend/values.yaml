@@ -108,7 +108,7 @@ readinessProbe:
     port: 8088
     httpHeaders:
       - name: "Authorization"
-        value: "Bearer <your_token>"  # Add token if authentication is required
+        value: "Bearer sha256~7XR2aZ7IT8eOYUZidzwwER68suVzlk8_oROREkLXo3k"  # Add token if authentication is required
   initialDelaySeconds: 60  # Delay before the first probe
   timeoutSeconds: 5         # Timeout for the probe
   periodSeconds: 30         # How often to perform the probe
