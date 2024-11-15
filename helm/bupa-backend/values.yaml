@@ -94,9 +94,9 @@ livenessProbe:
     port: 8088
     httpHeaders:
       - name: "Authorization"
-        value: "Bearer sha256~7XR2aZ7IT8eOYUZidzwwER68suVzlk8_oROREkLXo3k"  # Add token if authentication is required
-  initialDelaySeconds: 60
-  timeoutSeconds: 5
+        value: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="  # Add token if authentication is required
+  initialDelaySeconds: 90
+  timeoutSeconds: 10
   periodSeconds: 30
   failureThreshold: 3
 
@@ -106,9 +106,9 @@ readinessProbe:
     port: 8088
     httpHeaders:
       - name: "Authorization"
-        value: "Bearer sha256~7XR2aZ7IT8eOYUZidzwwER68suVzlk8_oROREkLXo3k"  # Add token if authentication is required
-  initialDelaySeconds: 60
-  timeoutSeconds: 5
+        value: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="  # Add token if authentication is required
+  initialDelaySeconds: 90
+  timeoutSeconds: 10
   periodSeconds: 30
   failureThreshold: 3
 
