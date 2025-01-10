@@ -35,3 +35,23 @@ spec:
                 secretKeyRef:
                   name: backend-env-secret
                   key: DB_PASSWORD
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: backend-env-secret
+                  key: DB_HOST
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: backend-env-secret
+                  key: DB_PORT
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: backend-env-secret
+                  key: DB_NAME
+            - name: APP_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: backend-env-secret
+                  key: APP_PORT
