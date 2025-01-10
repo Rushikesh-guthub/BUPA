@@ -24,3 +24,14 @@ spec:
             requests:
               memory: "180Mi"
               cpu: "10m"
+          env:
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: backend-env-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: backend-env-secret
+                  key: DB_PASSWORD
